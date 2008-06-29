@@ -1,13 +1,13 @@
 <?xml version="1.0"?><project>
   <parent>
-    <artifactId>aconex-cache-simulator</artifactId>
-    <groupId>com.aconex.cache</groupId>
+    <artifactId>custard-cache</artifactId>
+    <groupId>com.custardsource.cache</groupId>
     <version>0.0.1</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.aconex.cache</groupId>
-  <artifactId>aconex-cache-simulator-policies</artifactId>
-  <name>aconex-cache-simulator-policies</name>
+  <groupId>com.custardsource.cache</groupId>
+  <artifactId>custard-cache-policies</artifactId>
+  <name>custard-cache-policies</name>
   <version>0.0.1-SNAPSHOT</version>
   <url>http://maven.apache.org</url>
   <dependencies>
