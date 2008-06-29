@@ -1,0 +1,40 @@
+package com.aconex.cache.policy.mq;
+
+import com.aconex.cache.policy.MultipleQueueConfiguration;
+
+public class MQConfiguration extends MultipleQueueConfiguration {
+    private int queueCount = 3;
+    private int lifetime = 3;
+    
+    public static final String QUEUE_COUNT = "queueCount";
+    public static final String LIFETIME = "lifetime";
+
+    @Override
+    public String toString() {
+        return super.toString() + ", queueCount=" + queueCount;
+    }
+
+    public int getQueueCount() {
+        return queueCount;
+    }
+
+    // TODO is there any sensible way to adjust this dynamically?
+    void setQueueCount(int queueCount) {
+        if (queueCount <= 1) { 
+            throw new IllegalArgumentException("queueCount must be > 1");
+        }
+        this.queueCount = queueCount;
+    }
+
+    public int getLifetime() {
+        return lifetime;
+    }
+
+    // TODO is there any sensible way to adjust this dynamically?
+    void setLifetime(int lifetime) {
+        if (lifetime <= 1) { 
+            throw new IllegalArgumentException("lifetime must be >= 1");
+        }
+        this.lifetime = lifetime;
+    }
+}
