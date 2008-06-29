@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.aconex.cache</groupId>
-  <artifactId>aconex-cache-simulator</artifactId>
+  <groupId>com.custardsource.cache</groupId>
+  <artifactId>custard-cache</artifactId>
   <version>0.0.1</version>
   <packaging>pom</packaging>
   <modules>
-    <module>aconex-cache-simulator-policies</module>
-    <module>aconex-cache-simulator-jboss2</module>
-    <module>aconex-cache-simulator-shell</module>
+    <module>custard-cache-policies</module>
+    <module>custard-cache-jboss2</module>
+    <module>custard-cache-simulator</module>
   </modules>
   <properties>
-  <cachesimulator.version>${project.version}</cachesimulator.version>
+  <cache.version>${project.version}</cache.version>
   </properties>
   <build>
     <plugins>
