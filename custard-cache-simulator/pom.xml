@@ -1,20 +1,20 @@
 <?xml version="1.0"?><project>
   <parent>
-    <artifactId>aconex-cache-simulator</artifactId>
-    <groupId>com.aconex.cache</groupId>
+    <artifactId>custard-cache</artifactId>
+    <groupId>com.custardsource.cache</groupId>
     <version>0.0.1</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.aconex.cache</groupId>
-  <artifactId>aconex-cache-simulator-shell</artifactId>
-  <name>aconex-cache-simulator-shell</name>
+  <groupId>com.custardsource.cache</groupId>
+  <artifactId>custard-cache-simulator</artifactId>
+  <name>custard-cache-simulator</name>
   <version>0.0.1-SNAPSHOT</version>
   <url>http://maven.apache.org</url>
   <dependencies>
     <dependency>
-      <groupId>com.aconex.cache</groupId>
-      <artifactId>aconex-cache-simulator-jboss2</artifactId>
-      <version>${cachesimulator.version}</version>
+      <groupId>com.custardsource.cache</groupId>
+      <artifactId>custard-cache-jboss2</artifactId>
+      <version>${cache.version}</version>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
