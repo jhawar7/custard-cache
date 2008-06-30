@@ -50,8 +50,6 @@ public class CacheSimulatorShell {
             runTest(getConfiguration(new StandardPolicySpecification(
                     "org.jboss.cache.eviction.FIFOPolicy"), cmd));
             runTest(getConfiguration(new StandardPolicySpecification(
-                    "org.jboss.cache.eviction.LRUPolicy"), cmd));
-            runTest(getConfiguration(new StandardPolicySpecification(
                     "org.jboss.cache.eviction.MRUPolicy"), cmd));
             runTest(getConfiguration(new StandardPolicySpecification(
                     "org.jboss.cache.eviction.LFUPolicy"), cmd));
