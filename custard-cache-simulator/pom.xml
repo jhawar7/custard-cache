@@ -8,7 +8,6 @@
   <groupId>com.custardsource.cache</groupId>
   <artifactId>custard-cache-simulator</artifactId>
   <name>custard-cache-simulator</name>
-  <version>0.0.1-SNAPSHOT</version>
   <url>http://maven.apache.org</url>
   <dependencies>
     <dependency>
