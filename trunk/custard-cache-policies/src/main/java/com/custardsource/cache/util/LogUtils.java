@@ -1,7 +1,5 @@
 package com.custardsource.cache.util;
 
-import java.text.Format;
-
 import org.apache.commons.logging.Log;
 
 public class LogUtils {

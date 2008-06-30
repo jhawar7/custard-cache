@@ -95,11 +95,11 @@ public class TwoQCacheManager<T> extends MultipleQueueCacheManager<T> {
 
     @Override
     protected void onMiss(T entry) {
-        reclaimFor(entry);
+        reclaimForEntry();
         insertNode(entry, a1In);
     }
 
-    private void reclaimFor(T entry) {
+    private void reclaimForEntry() {
         if (cacheSize() < cacheCapacity()) {
             // Do nothing, we're fine
             LogUtils.debug(LOG, " got room, we're fine");
@@ -121,11 +121,9 @@ public class TwoQCacheManager<T> extends MultipleQueueCacheManager<T> {
         if (currentLocation == am) {
             LogUtils.debug(LOG, " Shuffling to head of am");
             moveNode(node, currentLocation, am);
-        } else if (currentLocation == a1In) {
-            // Do nothing
-        } else {
+        } else if (currentLocation != a1In) {
             // Must be in a1Out
-            reclaimFor(node);
+            reclaimForEntry();
             moveNode(node, currentLocation, am);
         }
     }
