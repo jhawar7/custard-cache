@@ -1,8 +1,8 @@
-package com.aconex.cache.simulator;
+package com.custardsource.cache.simulator;
 
 import org.jboss.cache.Fqn;
 
-import com.aconex.cache.simulator.policy.PolicySpecification;
+import com.custardsource.cache.simulator.policy.PolicySpecification;
 
 class SimulatorConfiguration {
     private final PolicySpecification policy;

@@ -1,4 +1,4 @@
-package com.aconex.cache.simulator.fqn;
+package com.custardsource.cache.simulator.fqn;
 
 import java.io.BufferedReader;
 import java.io.IOException;
