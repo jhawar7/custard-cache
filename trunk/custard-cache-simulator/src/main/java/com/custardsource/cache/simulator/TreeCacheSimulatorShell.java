@@ -1,4 +1,4 @@
-package com.aconex.cache.simulator;
+package com.custardsource.cache.simulator;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -22,12 +22,12 @@ import org.apache.commons.math.distribution.DistributionFactory;
 import org.apache.commons.math.distribution.IntegerDistribution;
 import org.jboss.cache.Fqn;
 
-import com.aconex.cache.simulator.fqn.IntegerDistributionFqnSource;
-import com.aconex.cache.simulator.fqn.LogFileFqnSource;
-import com.aconex.cache.simulator.policy.FixedReplacementPolicySpecification;
-import com.aconex.cache.simulator.policy.MQPolicySpecification;
-import com.aconex.cache.simulator.policy.PolicySpecification;
-import com.aconex.cache.simulator.policy.StandardPolicySpecification;
+import com.custardsource.cache.simulator.fqn.IntegerDistributionFqnSource;
+import com.custardsource.cache.simulator.fqn.LogFileFqnSource;
+import com.custardsource.cache.simulator.policy.FixedReplacementPolicySpecification;
+import com.custardsource.cache.simulator.policy.MQPolicySpecification;
+import com.custardsource.cache.simulator.policy.PolicySpecification;
+import com.custardsource.cache.simulator.policy.StandardPolicySpecification;
 
 public class TreeCacheSimulatorShell {
 

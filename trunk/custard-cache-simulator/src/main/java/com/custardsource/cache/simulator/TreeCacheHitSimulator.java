@@ -1,4 +1,4 @@
-package com.aconex.cache.simulator;
+package com.custardsource.cache.simulator;
 
 import java.io.StringReader;
 import java.text.NumberFormat;
@@ -13,7 +13,7 @@ import org.jboss.cache.eviction.Region;
 import org.w3c.dom.Element;
 import org.xml.sax.InputSource;
 
-import com.aconex.cache.simulator.policy.PolicySpecification;
+import com.custardsource.cache.simulator.policy.PolicySpecification;
 
 public class TreeCacheHitSimulator {
     private static final Log LOG = LogFactory.getLog(TreeCacheHitSimulator.class);
