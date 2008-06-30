@@ -31,29 +31,6 @@ import com.custardsource.cache.simulator.policy.StandardPolicySpecification;
 
 public class CacheSimulatorShell {
 
-    /**
-     * Example command-=line usages, so I don't forget them:
-     * <dl>
-     * <dt>Poisson-based distribution:</dt>
-     * <dd>--cache-size=30 --reap-every=50 --fqn-poisson=1000 --iterations=10000</dd>
-     * <dt>Based on cache activity logfile (all regions)</dt>
-     * <dd>--cache-size=25000 --reap-every=50 --fqn-file=/aconex/tomcat/logs/mel-cacheactivity.log
-     * --match-group=1 --match-pattern=".*Node visited: (.*)"</dd>
-     * <dt>Based on cache activity logfile (Preferences region only)</dt>
-     * <dd>--cache-size=25000 --reap-every=100 --fqn-file=/aconex/tomcat/logs/mel-cacheactivity.log
-     * --match-group=1 --match-pattern=".*Node visited: (/Preference.*)"</dd>
-     * <dt>zipped-up live logfile (Preferences region only)</dt>
-     * <dd>--cache-size=25000 --reap-every=100 --fqn-file=/tmp/cacheaccess-2007-12-09.zip
-     * --match-group=1 --match-pattern=".*Node visited: (/Preference.*) --zip"</dd>
-     * </dl>
-     * <p>
-     * To work out how frequently to 'reap-every', assuming a full-day's log file (midnight -
-     * midnight) with reaps every 30 seconds, try something like:
-     * <code>expr `unzip -p cacheaccess-2007-12-09.zip | fgrep "visited: /PreferenceStore" | wc -l` / 2880</code>
-     * </p>
-     * 
-     * @author pcowan
-     */
     public static void main(String[] args) throws Exception {
         Options options = createOptions();
 
