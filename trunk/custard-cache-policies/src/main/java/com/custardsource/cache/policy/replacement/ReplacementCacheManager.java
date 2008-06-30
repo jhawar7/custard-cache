@@ -44,7 +44,7 @@ public abstract class ReplacementCacheManager<T> extends MultipleQueueCacheManag
         }
     }
 
-    protected int cacheSize() {
+    public int cacheSize() {
         return t1.size() + t2.size();
     }
 }
