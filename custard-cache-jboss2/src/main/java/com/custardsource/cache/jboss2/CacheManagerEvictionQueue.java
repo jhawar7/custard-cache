@@ -1,4 +1,4 @@
-package com.aconex.cache.policy;
+package com.custardsource.cache.jboss2;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -12,6 +12,9 @@ import org.jboss.cache.Fqn;
 import org.jboss.cache.eviction.EvictionQueue;
 import org.jboss.cache.eviction.NodeEntry;
 
+import com.aconex.cache.policy.CacheManager;
+import com.aconex.cache.policy.CacheManagerListener;
+import com.aconex.cache.policy.QueueAdapter;
 import com.aconex.cache.util.LogUtils;
 
 /**

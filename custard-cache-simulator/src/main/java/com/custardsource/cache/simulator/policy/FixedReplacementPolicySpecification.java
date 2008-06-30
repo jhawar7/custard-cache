@@ -2,7 +2,7 @@ package com.custardsource.cache.simulator.policy;
 
 import java.text.NumberFormat;
 
-import com.aconex.cache.policy.replacement.FixedReplacementPolicy;
+import com.custardsource.cache.jboss2.replacement.FixedReplacementPolicy;
 
 public class FixedReplacementPolicySpecification extends StandardPolicySpecification {
     private final double t1Factor;

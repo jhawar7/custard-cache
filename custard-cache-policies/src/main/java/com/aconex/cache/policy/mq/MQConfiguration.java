@@ -19,7 +19,8 @@ public class MQConfiguration extends MultipleQueueConfiguration {
     }
 
     // TODO is there any sensible way to adjust this dynamically?
-    void setQueueCount(int queueCount) {
+    // TODO shouldn't be public
+    public void setQueueCount(int queueCount) {
         if (queueCount <= 1) { 
             throw new IllegalArgumentException("queueCount must be > 1");
         }
@@ -31,7 +32,8 @@ public class MQConfiguration extends MultipleQueueConfiguration {
     }
 
     // TODO is there any sensible way to adjust this dynamically?
-    void setLifetime(int lifetime) {
+    // TODO shouldn't be public
+    public void setLifetime(int lifetime) {
         if (lifetime <= 1) { 
             throw new IllegalArgumentException("lifetime must be >= 1");
         }

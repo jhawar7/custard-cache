@@ -1,11 +1,11 @@
-package com.aconex.cache.policy;
+package com.custardsource.cache.jboss2;
 
 import org.jboss.cache.TreeCache;
 import org.jboss.cache.eviction.BaseEvictionPolicy;
 import org.jboss.cache.eviction.EvictionAlgorithm;
 import org.jboss.cache.eviction.RegionManager;
 
-import com.aconex.cache.policy.CacheManagerEvictionAlgorithm;
+import com.custardsource.cache.jboss2.CacheManagerEvictionAlgorithm;
 
 /**
  * The base class for all 'multiple-queue' algorithm implementations. These are not to be confused

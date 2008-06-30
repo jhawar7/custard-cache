@@ -1,4 +1,4 @@
-package com.aconex.cache.policy;
+package com.custardsource.cache.jboss2;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

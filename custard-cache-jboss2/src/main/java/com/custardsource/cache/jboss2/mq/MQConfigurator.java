@@ -1,11 +1,12 @@
-package com.aconex.cache.policy.mq;
+package com.custardsource.cache.jboss2.mq;
 
 import org.jboss.cache.ConfigureException;
 import org.jboss.cache.eviction.EvictionConfiguration;
 import org.jboss.cache.xml.XmlHelper;
 import org.w3c.dom.Element;
 
-import com.aconex.cache.policy.MultipleQueueConfigurator;
+import com.aconex.cache.policy.mq.MQConfiguration;
+import com.custardsource.cache.jboss2.MultipleQueueConfigurator;
 
 
 public class MQConfigurator extends MultipleQueueConfigurator<MQConfiguration> {
