@@ -40,10 +40,10 @@ public class CacheSimulatorShell {
             cmd = parser.parse(options, args);
             runTest(getConfiguration(new MQPolicySpecification(3, 3), cmd));
             runTest(getConfiguration(new StandardPolicySpecification(
-                    "com.aconex.cache.policy.twoq.TwoQPolicy"), cmd));
+                    "com.custardsource.cache.jboss2.twoq.TwoQPolicy"), cmd));
             runTest(getConfiguration(new FixedReplacementPolicySpecification(0.1), cmd));
             runTest(getConfiguration(new StandardPolicySpecification(
-                    "com.aconex.cache.policy.replacement.AdaptiveReplacementPolicy"), cmd));
+                    "com.custardsource.cache.jboss2.replacement.AdaptiveReplacementPolicy"), cmd));
             runTest(getConfiguration(new StandardPolicySpecification(
                     "org.jboss.cache.eviction.LRUPolicy"), cmd));
 

@@ -12,7 +12,7 @@
     </appender>
 
     <!-- This is the one to change if you want detailed information on the cache alogrithms to check correctness -->
-    <logger name="com.aconex.cache.policy">
+    <logger name="com.custardsource.cache.policy">
         <level value="INFO" />
     </logger>
 
