@@ -5,8 +5,8 @@ import org.jboss.cache.eviction.EvictionConfiguration;
 import org.jboss.cache.xml.XmlHelper;
 import org.w3c.dom.Element;
 
-import com.aconex.cache.policy.mq.MQConfiguration;
 import com.custardsource.cache.jboss2.MultipleQueueConfigurator;
+import com.custardsource.cache.policy.mq.MQConfiguration;
 
 
 public class MQConfigurator extends MultipleQueueConfigurator<MQConfiguration> {

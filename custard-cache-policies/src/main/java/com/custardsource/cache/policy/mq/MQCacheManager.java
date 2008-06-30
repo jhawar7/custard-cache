@@ -1,4 +1,4 @@
-package com.aconex.cache.policy.mq;
+package com.custardsource.cache.policy.mq;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,8 +9,8 @@ import java.util.Queue;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import com.aconex.cache.policy.MultipleQueueCacheManager;
-import com.aconex.cache.policy.QueueAdapter;
+import com.custardsource.cache.policy.MultipleQueueCacheManager;
+import com.custardsource.cache.policy.QueueAdapter;
 
 /**
  * Cache eviction policy which implements the MQ (Multi-Queue Replacement) algorithm by Yuanyuan

@@ -1,4 +1,4 @@
-package com.aconex.cache.policy;
+package com.custardsource.cache.policy;
 
 public abstract class MultipleQueueConfiguration {
     private int maxNodes;

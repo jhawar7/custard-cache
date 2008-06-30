@@ -1,4 +1,4 @@
-package com.aconex.cache.policy;
+package com.custardsource.cache.policy;
 
 public interface CacheManagerListener<T> {
     public void evictObject(T item);

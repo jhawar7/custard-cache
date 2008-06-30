@@ -1,6 +1,6 @@
-package com.aconex.cache.policy.mq;
+package com.custardsource.cache.policy.mq;
 
-import com.aconex.cache.policy.MultipleQueueConfiguration;
+import com.custardsource.cache.policy.MultipleQueueConfiguration;
 
 public class MQConfiguration extends MultipleQueueConfiguration {
     private int queueCount = 3;

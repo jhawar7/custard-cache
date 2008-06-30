@@ -1,11 +1,11 @@
-package com.aconex.cache.policy.replacement;
+package com.custardsource.cache.policy.replacement;
 
 import java.util.LinkedHashSet;
 import java.util.Queue;
 
-import com.aconex.cache.policy.CacheManager;
-import com.aconex.cache.policy.MultipleQueueCacheManager;
-import com.aconex.cache.policy.QueueAdapter;
+import com.custardsource.cache.policy.CacheManager;
+import com.custardsource.cache.policy.MultipleQueueCacheManager;
+import com.custardsource.cache.policy.QueueAdapter;
 
 /**
  * Base class for the {@link CacheManager} implementation of 'Replacement Cache' algorithms of

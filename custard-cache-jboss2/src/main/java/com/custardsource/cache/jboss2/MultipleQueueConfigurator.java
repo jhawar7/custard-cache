@@ -5,7 +5,7 @@ import org.jboss.cache.eviction.EvictionConfiguration;
 import org.jboss.cache.xml.XmlHelper;
 import org.w3c.dom.Element;
 
-import com.aconex.cache.policy.MultipleQueueConfiguration;
+import com.custardsource.cache.policy.MultipleQueueConfiguration;
 
 public abstract class MultipleQueueConfigurator<T extends MultipleQueueConfiguration> implements EvictionConfiguration {
     protected final T config;
