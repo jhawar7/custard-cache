@@ -7,7 +7,7 @@ import org.jboss.cache.eviction.BaseEvictionAlgorithm;
 import org.jboss.cache.eviction.EvictionException;
 import org.jboss.cache.eviction.NodeEntry;
 
-import com.aconex.cache.util.LogUtils;
+import com.custardsource.cache.util.LogUtils;
 
 public abstract class CacheManagerEvictionAlgorithm extends BaseEvictionAlgorithm {
     private static final Log LOG = LogFactory.getLog(CacheManagerEvictionAlgorithm.class);

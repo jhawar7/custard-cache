@@ -12,10 +12,10 @@ import org.jboss.cache.Fqn;
 import org.jboss.cache.eviction.EvictionQueue;
 import org.jboss.cache.eviction.NodeEntry;
 
-import com.aconex.cache.policy.CacheManager;
-import com.aconex.cache.policy.CacheManagerListener;
-import com.aconex.cache.policy.QueueAdapter;
-import com.aconex.cache.util.LogUtils;
+import com.custardsource.cache.policy.CacheManager;
+import com.custardsource.cache.policy.CacheManagerListener;
+import com.custardsource.cache.policy.QueueAdapter;
+import com.custardsource.cache.util.LogUtils;
 
 /**
  * <p>

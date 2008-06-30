@@ -1,4 +1,4 @@
-package com.aconex.cache.policy.twoq;
+package com.custardsource.cache.policy.twoq;
 
 import java.util.LinkedHashSet;
 import java.util.Queue;
@@ -6,8 +6,8 @@ import java.util.Queue;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import com.aconex.cache.policy.MultipleQueueCacheManager;
-import com.aconex.cache.policy.QueueAdapter;
+import com.custardsource.cache.policy.MultipleQueueCacheManager;
+import com.custardsource.cache.policy.QueueAdapter;
 import com.custardsource.cache.util.LogUtils;
 
 /**

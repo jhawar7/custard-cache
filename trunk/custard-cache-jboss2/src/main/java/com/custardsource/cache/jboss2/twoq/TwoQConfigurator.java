@@ -1,7 +1,7 @@
 package com.custardsource.cache.jboss2.twoq;
 
-import com.aconex.cache.policy.twoq.TwoQConfiguration;
 import com.custardsource.cache.jboss2.MultipleQueueConfigurator;
+import com.custardsource.cache.policy.twoq.TwoQConfiguration;
 
 public class TwoQConfigurator extends MultipleQueueConfigurator<TwoQConfiguration> {
     @Override

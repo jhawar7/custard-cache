@@ -5,10 +5,10 @@ import org.jboss.cache.eviction.EvictionQueue;
 import org.jboss.cache.eviction.NodeEntry;
 import org.jboss.cache.eviction.Region;
 
-import com.aconex.cache.policy.replacement.AdaptiveReplacementCacheManager;
 import com.custardsource.cache.jboss2.CacheManagerEvictionAlgorithm;
 import com.custardsource.cache.jboss2.CacheManagerEvictionPolicy;
 import com.custardsource.cache.jboss2.CacheManagerEvictionQueue;
+import com.custardsource.cache.policy.replacement.AdaptiveReplacementCacheManager;
 
 public class AdaptiveReplacementPolicy extends CacheManagerEvictionPolicy {
     @Override

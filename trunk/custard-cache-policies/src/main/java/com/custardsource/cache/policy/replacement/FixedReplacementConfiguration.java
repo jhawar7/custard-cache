@@ -1,6 +1,6 @@
-package com.aconex.cache.policy.replacement;
+package com.custardsource.cache.policy.replacement;
 
-import com.aconex.cache.policy.MultipleQueueConfiguration;
+import com.custardsource.cache.policy.MultipleQueueConfiguration;
 
 public class FixedReplacementConfiguration extends MultipleQueueConfiguration {
     private int t1Size;
