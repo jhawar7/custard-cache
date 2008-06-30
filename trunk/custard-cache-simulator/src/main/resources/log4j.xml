@@ -11,17 +11,11 @@
         </layout>
     </appender>
 
-    <!-- This is the one to change if you want detailed information on the cache alogrithms to check correctness -->
+    <!-- This is the one to change if you want detailed information on the cache algorithms to check correctness -->
     <logger name="com.custardsource.cache.policy">
         <level value="INFO" />
     </logger>
 
-    <!-- JBoss spams the logs a little as we're using some deprecated methods; suppress all but error -->
-    <logger name="org.jboss">
-        <level value="ERROR" />
-    </logger>
-
-    <!--ROOT Logger-->
     <root>
         <level value="INFO" />
         <appender-ref ref="Console" />

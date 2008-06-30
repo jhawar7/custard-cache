@@ -1,48 +1,28 @@
 package com.custardsource.cache.simulator;
 
-import org.jboss.cache.Fqn;
-
-import com.custardsource.cache.simulator.policy.PolicySpecification;
+import com.custardsource.cache.policy.CacheManager;
 
 class SimulatorConfiguration {
-    private final PolicySpecification policy;
-    private final Iterable<Fqn> fqnSource;
-    private final int maxNodes;
-    private final int reapEvery;
-    private final int minNodes;
-    private final int showProgressEvery;
-    
-    public SimulatorConfiguration(PolicySpecification policy, Iterable<Fqn> fqnSource, int maxNodes,
-            int minNodes, int reapEvery, int showProgressEvery) {
-        this.policy = policy;
-        this.fqnSource = fqnSource;
-        this.maxNodes = maxNodes;
-        this.minNodes = minNodes;
-        this.reapEvery = reapEvery;
-        this.showProgressEvery = showProgressEvery;
-    }
+	private final CacheManager<String> policy;
+	private final Iterable<String> fqnSource;
+	private final int showProgressEvery;
 
-    PolicySpecification getPolicy() {
-        return policy;
-    }
+	public SimulatorConfiguration(CacheManager<String> policy,
+			Iterable<String> fqnSource, int showProgressEvery) {
+		this.policy = policy;
+		this.fqnSource = fqnSource;
+		this.showProgressEvery = showProgressEvery;
+	}
 
-    Iterable<Fqn> getFqnSource() {
-        return fqnSource;
-    }
+	CacheManager<String> getPolicy() {
+		return policy;
+	}
 
-    int getMaxNodes() {
-        return maxNodes;
-    }
+	Iterable<String> getFqnSource() {
+		return fqnSource;
+	}
 
-    int getReapEvery() {
-        return reapEvery;
-    }
-
-    int getMinNodes() {
-        return minNodes;
-    }
-
-    int getShowProgressEvery() {
-        return showProgressEvery;
-    }
+	int getShowProgressEvery() {
+		return showProgressEvery;
+	}
 }
