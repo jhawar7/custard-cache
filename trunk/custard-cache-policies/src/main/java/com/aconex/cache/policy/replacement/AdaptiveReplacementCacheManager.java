@@ -7,7 +7,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import com.aconex.cache.policy.QueueAdapter;
-import com.aconex.cache.util.LogUtils;
+import com.custardsource.cache.util.LogUtils;
 
 /**
  * Cache eviction policy which implements the Adaptive Replacement Cache algorithm by Nimrod Megiddo

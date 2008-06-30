@@ -8,7 +8,7 @@ import org.apache.commons.logging.LogFactory;
 
 import com.aconex.cache.policy.MultipleQueueCacheManager;
 import com.aconex.cache.policy.QueueAdapter;
-import com.aconex.cache.util.LogUtils;
+import com.custardsource.cache.util.LogUtils;
 
 /**
  * Cache eviction policy which implements the '2Q' algorithm by Theodore Johnson and Dennis Shasha.
