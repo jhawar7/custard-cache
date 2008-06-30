@@ -1,4 +1,4 @@
-package com.aconex.cache.util;
+package com.custardsource.cache.util;
 
 import java.text.Format;
 

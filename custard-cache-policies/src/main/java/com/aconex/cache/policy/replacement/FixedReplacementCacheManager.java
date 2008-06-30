@@ -5,7 +5,7 @@ import java.util.Queue;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import com.aconex.cache.util.LogUtils;
+import com.custardsource.cache.util.LogUtils;
 
 /**
  * Cache eviction policy which implements the Fixed Replacement Cache algorithm by Nimrod Megiddo
