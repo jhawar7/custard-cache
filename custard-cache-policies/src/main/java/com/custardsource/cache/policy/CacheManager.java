@@ -7,4 +7,5 @@ public interface CacheManager<T> {
     public void addListener(CacheManagerListener<T> listener);
     public void removeListener(CacheManagerListener<T> listener);
     public void clear();
+    public int cacheSize();
 }

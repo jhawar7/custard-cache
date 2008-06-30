@@ -51,7 +51,7 @@ public class TwoQCacheManager<T> extends MultipleQueueCacheManager<T> {
         }
     }
 
-    protected int cacheSize() {
+    public int cacheSize() {
         return am.size() + a1In.size();
     }
 

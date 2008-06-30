@@ -145,7 +145,7 @@ public class MQCacheManager<T> extends MultipleQueueCacheManager<T> {
         return null;
     }
 
-    private int cacheSize() {
+    public int cacheSize() {
         int size = 0;
         for (Queue<T> queue : queues) {
             size += queue.size();
