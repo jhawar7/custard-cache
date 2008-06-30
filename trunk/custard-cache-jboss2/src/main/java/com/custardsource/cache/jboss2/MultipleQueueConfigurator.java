@@ -1,9 +1,11 @@
-package com.aconex.cache.policy;
+package com.custardsource.cache.jboss2;
 
 import org.jboss.cache.ConfigureException;
 import org.jboss.cache.eviction.EvictionConfiguration;
 import org.jboss.cache.xml.XmlHelper;
 import org.w3c.dom.Element;
+
+import com.aconex.cache.policy.MultipleQueueConfiguration;
 
 public abstract class MultipleQueueConfigurator<T extends MultipleQueueConfiguration> implements EvictionConfiguration {
     protected final T config;

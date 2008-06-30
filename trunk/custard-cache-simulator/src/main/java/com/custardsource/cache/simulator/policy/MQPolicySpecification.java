@@ -1,6 +1,6 @@
 package com.custardsource.cache.simulator.policy;
 
-import com.aconex.cache.policy.mq.MQPolicy;
+import com.custardsource.cache.jboss2.mq.MQPolicy;
 
 
 public class MQPolicySpecification extends StandardPolicySpecification {

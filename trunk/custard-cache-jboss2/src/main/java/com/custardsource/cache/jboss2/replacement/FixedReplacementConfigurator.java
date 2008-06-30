@@ -1,11 +1,12 @@
-package com.aconex.cache.policy.replacement;
+package com.custardsource.cache.jboss2.replacement;
 
 import org.jboss.cache.ConfigureException;
 import org.jboss.cache.eviction.EvictionConfiguration;
 import org.jboss.cache.xml.XmlHelper;
 import org.w3c.dom.Element;
 
-import com.aconex.cache.policy.MultipleQueueConfigurator;
+import com.aconex.cache.policy.replacement.FixedReplacementConfiguration;
+import com.custardsource.cache.jboss2.MultipleQueueConfigurator;
 
 public class FixedReplacementConfigurator extends MultipleQueueConfigurator<FixedReplacementConfiguration> {
     public static final String T1_SIZE = "t1Size";
