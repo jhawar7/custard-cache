@@ -3,7 +3,6 @@ package com.custardsource.cache.policy.replacement;
 import java.util.LinkedHashSet;
 import java.util.Queue;
 
-import com.custardsource.cache.policy.CacheManager;
 import com.custardsource.cache.policy.MultipleQueueCacheManager;
 import com.custardsource.cache.policy.QueueAdapter;
 
