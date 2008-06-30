@@ -29,7 +29,7 @@ import com.custardsource.cache.simulator.policy.MQPolicySpecification;
 import com.custardsource.cache.simulator.policy.PolicySpecification;
 import com.custardsource.cache.simulator.policy.StandardPolicySpecification;
 
-public class TreeCacheSimulatorShell {
+public class CacheSimulatorShell {
 
     /**
      * Example command-=line usages, so I don't forget them:
@@ -155,7 +155,7 @@ public class TreeCacheSimulatorShell {
     }
 
     private static void runTest(SimulatorConfiguration config) throws Exception {
-        TreeCacheHitSimulator simulator = new TreeCacheHitSimulator(config);
+        CacheHitSimulator simulator = new CacheHitSimulator(config);
         simulator.testPerformance();
         simulator.nuke();
     }

@@ -15,10 +15,10 @@ import org.xml.sax.InputSource;
 
 import com.custardsource.cache.simulator.policy.PolicySpecification;
 
-public class TreeCacheHitSimulator {
-    private static final Log LOG = LogFactory.getLog(TreeCacheHitSimulator.class);
+public class CacheHitSimulator {
+    private static final Log LOG = LogFactory.getLog(CacheHitSimulator.class);
 
-    public TreeCacheHitSimulator(SimulatorConfiguration configuration) throws Exception {
+    public CacheHitSimulator(SimulatorConfiguration configuration) throws Exception {
         this.config = configuration;
         initCache(config.getPolicy(), config.getMaxNodes(), config.getMinNodes());
     }
