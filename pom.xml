@@ -4,12 +4,40 @@
   <groupId>com.custardsource.cache</groupId>
   <artifactId>custard-cache</artifactId>
   <version>0.0.1</version>
+  <name>custard-cache</name>
+  <url>http://custardcache.com/</url>
   <packaging>pom</packaging>
   <modules>
     <module>custard-cache-policies</module>
     <module>custard-cache-jboss2</module>
     <module>custard-cache-simulator</module>
   </modules>
+  <licenses>
+    <license>
+      <name>Apache 2</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+      <comments>A business-friendly OSS license</comments>
+    </license>
+  </licenses>
+  <organization>
+    <name>custardsource</name>
+    <url>http://custardsource.com/</url>
+  </organization>
+  <developers>
+    <developer>
+      <id>funkwit</id>
+      <name>Paul Cowan</name>
+      <email>paul@custardsource.com</email>
+      <url>http://custardsource.com/</url>
+      <organization>custardsource</organization>
+      <organizationUrl>http://custardsource.com/</organizationUrl>
+      <roles>
+        <role>developer</role>
+      </roles>
+      <timezone>+10</timezone>
+    </developer>
+  </developers>
   <properties>
   <cache.version>${project.version}</cache.version>
   </properties>
