@@ -12,7 +12,7 @@
   <dependencies>
     <dependency>
       <groupId>com.custardsource.cache</groupId>
-      <artifactId>custard-cache-jboss2</artifactId>
+      <artifactId>custard-cache-policies</artifactId>
       <version>${cache.version}</version>
     </dependency>
     <dependency>
