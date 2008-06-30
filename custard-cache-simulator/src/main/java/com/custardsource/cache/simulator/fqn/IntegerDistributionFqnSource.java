@@ -5,9 +5,8 @@ import java.util.Random;
 
 import org.apache.commons.math.MathException;
 import org.apache.commons.math.distribution.IntegerDistribution;
-import org.jboss.cache.Fqn;
 
-public class IntegerDistributionFqnSource implements Iterable<Fqn> {
+public class IntegerDistributionFqnSource implements Iterable<String> {
     final Random randomSource;
     final int maximum;
     final int iterations;
@@ -29,17 +28,17 @@ public class IntegerDistributionFqnSource implements Iterable<Fqn> {
         }
     }
 
-    public Iterator<Fqn> iterator() {
-        return new Iterator<Fqn>() {
+    public Iterator<String> iterator() {
+        return new Iterator<String>() {
             int iteration = 0;
 
             public boolean hasNext() {
                 return (iteration <= iterations);
             }
 
-            public Fqn next() {
+            public String next() {
                 iteration++;
-                return new Fqn(nextValue());
+                return String.valueOf(nextValue());
             }
 
             public void remove() {

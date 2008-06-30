@@ -11,9 +11,8 @@ import java.util.regex.Pattern;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.jboss.cache.Fqn;
 
-public class LogFileFqnSource implements Iterable<Fqn> {
+public class LogFileFqnSource implements Iterable<String> {
     private final InputStream input;
     private final Pattern pattern;
     private final Integer group;
@@ -29,9 +28,9 @@ public class LogFileFqnSource implements Iterable<Fqn> {
 
     }
 
-    public Iterator<Fqn> iterator() {
-        return new Iterator<Fqn>() {
-            private Fqn prefetched = null;
+    public Iterator<String> iterator() {
+        return new Iterator<String>() {
+            private String prefetched = null;
             private int found = 0;
             private final LineNumberReader reader = new LineNumberReader(new BufferedReader(
                     new InputStreamReader(input)));
@@ -41,7 +40,7 @@ public class LogFileFqnSource implements Iterable<Fqn> {
                 return prefetch() != null;
             }
 
-            private Fqn prefetch() {
+            private String prefetch() {
                 if (prefetched != null) {
                     return prefetched;
                 }
@@ -49,7 +48,7 @@ public class LogFileFqnSource implements Iterable<Fqn> {
                 return prefetched;
             }
 
-            private Fqn readNext() {
+            private String readNext() {
                 try {
                     String line = reader.readLine();
                     while (line != null && found < limit) {
@@ -58,7 +57,7 @@ public class LogFileFqnSource implements Iterable<Fqn> {
                             found++;
                             String match = m.group(group);
                             LOG.debug("Found FQN #" + found + ": " + match);
-                            return new Fqn(match);
+                            return match;
                         }
 
                         line = reader.readLine();
@@ -69,9 +68,9 @@ public class LogFileFqnSource implements Iterable<Fqn> {
                 return null;
             }
 
-            public Fqn next() {
+            public String next() {
                 if (prefetched != null) {
-                    Fqn result = prefetched;
+                    String result = prefetched;
                     prefetched = null;
                     return result;
                 }

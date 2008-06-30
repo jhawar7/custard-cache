@@ -3,15 +3,29 @@ package com.custardsource.cache.policy.mq;
 import com.custardsource.cache.policy.MultipleQueueConfiguration;
 
 public class MQConfiguration extends MultipleQueueConfiguration {
-    private int queueCount = 3;
+	private int queueCount = 3;
     private int lifetime = 3;
     
     public static final String QUEUE_COUNT = "queueCount";
     public static final String LIFETIME = "lifetime";
 
+    public MQConfiguration() {
+		super();
+	}
+
+	public MQConfiguration(int maxNodes) {
+		super(maxNodes);
+	}
+
+	public MQConfiguration(int maxNodes, int queueCount, int lifetime) {
+		super(maxNodes);
+		this.queueCount = queueCount;
+		this.lifetime = lifetime;
+	}
+
     @Override
     public String toString() {
-        return super.toString() + ", queueCount=" + queueCount;
+        return super.toString() + ", queueCount=" + queueCount + ", lifetime=" + lifetime;
     }
 
     public int getQueueCount() {
