@@ -1,12 +1,12 @@
 package com.custardsource.cache.policy;
 
-public abstract class MultipleQueueConfiguration {
+public abstract class BasicConfiguration {
     private int maxNodes;
     
-    public MultipleQueueConfiguration() {
+    public BasicConfiguration() {
     }
 
-    public MultipleQueueConfiguration(int maxNodes) {
+    public BasicConfiguration(int maxNodes) {
     	this.maxNodes = maxNodes;
     }
 
