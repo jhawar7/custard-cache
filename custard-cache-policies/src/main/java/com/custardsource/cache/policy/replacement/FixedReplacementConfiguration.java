@@ -1,8 +1,8 @@
 package com.custardsource.cache.policy.replacement;
 
-import com.custardsource.cache.policy.MultipleQueueConfiguration;
+import com.custardsource.cache.policy.BasicConfiguration;
 
-public class FixedReplacementConfiguration extends MultipleQueueConfiguration {
+public class FixedReplacementConfiguration extends BasicConfiguration {
     private int t1Size;
 
     public FixedReplacementConfiguration() {

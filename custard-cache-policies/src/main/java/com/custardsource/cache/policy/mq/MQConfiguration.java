@@ -1,8 +1,8 @@
 package com.custardsource.cache.policy.mq;
 
-import com.custardsource.cache.policy.MultipleQueueConfiguration;
+import com.custardsource.cache.policy.BasicConfiguration;
 
-public class MQConfiguration extends MultipleQueueConfiguration {
+public class MQConfiguration extends BasicConfiguration {
 	private int queueCount = 3;
     private int lifetime = 3;
     
