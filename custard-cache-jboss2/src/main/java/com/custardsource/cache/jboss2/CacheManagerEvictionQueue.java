@@ -117,11 +117,11 @@ public class CacheManagerEvictionQueue implements EvictionQueue, CacheManagerLis
         return toEvict.iterator();
     }
 
-    public void evictObject(NodeEntry item) {
+    public void objectReadyForEviction(NodeEntry item) {
         toEvict.add(item);
     }
 
-    public void loadObject(NodeEntry item) {
+    public void objectLoaded(NodeEntry item) {
         toEvict.remove(item);
     }
 
