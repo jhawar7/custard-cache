@@ -26,4 +26,5 @@ public abstract class BaseCacheManager<T> implements CacheManager<T> {
         }
     }
 
+    protected abstract String debugString(); 
 }

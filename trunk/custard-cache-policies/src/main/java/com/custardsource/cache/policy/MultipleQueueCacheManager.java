@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.IdentityHashMap;
 import java.util.Map;
 import java.util.Queue;
+import java.util.TreeMap;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
@@ -154,4 +155,12 @@ public abstract class MultipleQueueCacheManager<T> extends BaseCacheManager<T> {
         queueNames.put(queue, name);
     }
 
+	@Override
+	protected String debugString() {
+		Map<String, Queue<T>> reversed = new TreeMap<String, Queue<T>>();
+		for (Map.Entry<Queue<T>, String> entry : queueNames.entrySet()) {
+			reversed.put(entry.getValue(), entry.getKey());
+		}
+		return reversed.keySet().toString();
+	}
 }
