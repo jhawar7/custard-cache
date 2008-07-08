@@ -1,5 +1,6 @@
 package com.custardsource.cache.policy.simple;
 
+import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Queue;
 
@@ -39,5 +40,10 @@ public class FifoCacheManager<T> extends BaseCacheManager<T> {
             }
         }
     }
+
+	@Override
+	protected String debugString() {
+		return Arrays.toString(queue.toArray());
+	}
 
 }
