@@ -16,13 +16,13 @@ public abstract class BaseCacheManager<T> implements CacheManager<T> {
     
     protected void evict(T object) {
         for (CacheManagerListener<T> listener : listeners) {
-            listener.evictObject(object);
+            listener.objectReadyForEviction(object);
         }
     }
 
     protected void load(T object) {
         for (CacheManagerListener<T> listener : listeners) {
-            listener.loadObject(object);
+            listener.objectLoaded(object);
         }
     }
 

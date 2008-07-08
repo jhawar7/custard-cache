@@ -52,10 +52,10 @@ public class CacheHitSimulator {
     private static class CountingListener implements CacheManagerListener<String> {
     	private int loads;
 
-		public void evictObject(String item) {
+		public void objectReadyForEviction(String item) {
 		}
 
-		public void loadObject(String item) {
+		public void objectLoaded(String item) {
 			loads++;
 		}
     }
