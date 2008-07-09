@@ -35,14 +35,14 @@ public abstract class ReplacementCacheManager<T> extends MultipleQueueCacheManag
     protected abstract int cacheCapacity();
 
     @Override
-    protected void afterInsert(T entry, Queue<T> destination) {
-        if (destination == t1 || destination == t2) {
-            // Anything which WAS due for eviction is now part of the cache proper, and should no
-            // longer be evicted.
-            // TODO only if it's actually new?
-            load(entry);
-        }
-    }
+    protected void afterInsert(T entry, Queue<T> source, Queue<T> destination) {
+		if ((destination == t1 || destination == t2)
+				&& !(source == t1 || source == t2)) {
+			// Anything which WAS due for eviction is now part of the cache
+			// proper, and should no longer be evicted.
+			load(entry);
+		}
+	}
 
     public int cacheSize() {
         return t1.size() + t2.size();
