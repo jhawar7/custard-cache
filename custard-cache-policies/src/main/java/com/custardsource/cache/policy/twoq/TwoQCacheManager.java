@@ -44,7 +44,7 @@ public class TwoQCacheManager<T> extends MultipleQueueCacheManager<T> {
     }
 
     @Override
-    protected void afterInsert(T entry, Queue<T> destination) {
+    protected void afterInsert(T entry, Queue<T> source, Queue<T> destination) {
         if (destination == am || destination == a1In) {
             // TODO check the 'from' here?
             load(entry);

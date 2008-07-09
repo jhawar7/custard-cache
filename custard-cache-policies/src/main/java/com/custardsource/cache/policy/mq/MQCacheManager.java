@@ -43,7 +43,7 @@ public class MQCacheManager<T> extends MultipleQueueCacheManager<T> {
     }
 
     @Override
-    protected void afterInsert(T entry, Queue<T> destination) {
+    protected void afterInsert(T entry, Queue<T> source, Queue<T> destination) {
         if (queues.contains(destination)) {
             // TODO only if actually loaded?
             load(entry);

@@ -1,10 +1,12 @@
 package com.custardsource.cache.policy;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.IdentityHashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.Queue;
-import java.util.TreeMap;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
@@ -26,6 +28,7 @@ public abstract class MultipleQueueCacheManager<T> extends BaseCacheManager<T> {
     private static final Log LOG = LogFactory.getLog(BaseCacheManager.class);
 
     private Map<Queue<T>, String> queueNames = new IdentityHashMap<Queue<T>, String>();
+    private List<Queue<T>> queuesInOrder = new LinkedList<Queue<T>>();
     private Map<T, Queue<T>> currentLocations = new HashMap<T, Queue<T>>();
 
     public MultipleQueueCacheManager() {
@@ -69,7 +72,7 @@ public abstract class MultipleQueueCacheManager<T> extends BaseCacheManager<T> {
         LogUtils.debug(LOG, " insert %s to %s", entry, queueName(destination));
         destination.add(entry);
         currentLocations.put(entry, destination);
-        afterInsert(entry, destination);
+        afterInsert(entry, null, destination);
     }
 
     /**
@@ -78,7 +81,7 @@ public abstract class MultipleQueueCacheManager<T> extends BaseCacheManager<T> {
      * chance to do any bookkeeping required based on the new destination queue (e.g. let the
      * listeners know that this counts a 'load')
      */
-    protected abstract void afterInsert(T entry, Queue<T> destination);
+    protected abstract void afterInsert(T entry, Queue<T> source, Queue<T> destination);
 
     /**
      * Invoked after a node has been removed for good (that is, it's not being tracked in any way,
@@ -98,7 +101,7 @@ public abstract class MultipleQueueCacheManager<T> extends BaseCacheManager<T> {
         currentLocation.remove(entry);
         to.add(entry);
         currentLocations.put(entry, to);
-        afterInsert(entry, to);
+        afterInsert(entry, currentLocation, to);
     }
 
     protected void evictNode(Queue<T> from) {
@@ -153,14 +156,18 @@ public abstract class MultipleQueueCacheManager<T> extends BaseCacheManager<T> {
 
     protected final void registerQueue(Queue<T> queue, String name) {
         queueNames.put(queue, name);
+        queuesInOrder.add(queue);
     }
 
-	@Override
-	protected String debugString() {
-		Map<String, Queue<T>> reversed = new TreeMap<String, Queue<T>>();
-		for (Map.Entry<Queue<T>, String> entry : queueNames.entrySet()) {
-			reversed.put(entry.getValue(), entry.getKey());
-		}
-		return reversed.keySet().toString();
-	}
+    @Override
+    protected String debugString() {
+        StringBuilder builder = new StringBuilder();
+        for (Queue<T> queue : queuesInOrder) {
+            if (builder.length() > 0) {
+                builder.append(", ");
+            }
+            builder.append(queueName(queue) + ":" + Arrays.toString(queue.toArray()));
+        }
+        return builder.toString();
+    }
 }

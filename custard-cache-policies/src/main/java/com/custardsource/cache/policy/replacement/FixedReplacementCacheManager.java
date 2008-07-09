@@ -64,14 +64,14 @@ public class FixedReplacementCacheManager<T> extends ReplacementCacheManager<T> 
 
     @Override
     protected void onMiss(T entry) {
-        if (!t1.isEmpty() && t1.size() >= config.getT1Size()) {
+    	if (cacheSize() < cacheCapacity()) {
+            LogUtils.debug(LOG, " room in the cache, straight to t1");
+    	} else if (t1.size() >= config.getT1Size()) {
             LogUtils.debug(LOG, " t1 full, evicting from t1");
             evictNode(t1);
-        } else if (!t2.isEmpty() && cacheSize() >= cacheCapacity()) {
+        } else {
             LogUtils.debug(LOG, " cache full, evicting from t2");
             evictNode(t2);
-        } else {
-            LogUtils.debug(LOG, " room in the cache, straight to t1");
         }
         insertNode(entry, t1);
     }
