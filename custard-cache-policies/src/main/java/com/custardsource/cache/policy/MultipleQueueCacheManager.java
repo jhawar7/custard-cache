@@ -114,6 +114,15 @@ public abstract class MultipleQueueCacheManager<T> extends BaseCacheManager<T> {
         }
     }
 
+    protected void removeNode(Queue<T> from) {
+        LogUtils.debug(LOG, " remove already-evicted head from %s", queueName(from));
+        T node = from.remove();
+        if (node != null) {
+            currentLocations.remove(node);
+            afterRemove(node);
+        }
+    }
+
     protected abstract void onHit(T entry, Queue<T> currentLocation);
 
     protected abstract void onMiss(T entry);
