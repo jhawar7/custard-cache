@@ -47,7 +47,6 @@ public class CacheSimulatorShell {
             final int cacheSize = Integer.parseInt(cmd.getOptionValue("c"));
 
             // TODO add proper toStrings
-            // TODO pull jboss dependency out
             // TODO MQCacheManager is broken
             runTest(getConfiguration(new MQCacheManager<String>(new MQConfiguration(cacheSize)),
                     cmd));
