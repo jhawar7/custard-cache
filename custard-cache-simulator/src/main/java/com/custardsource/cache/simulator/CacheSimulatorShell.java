@@ -30,6 +30,8 @@ import com.custardsource.cache.policy.replacement.FixedReplacementCacheManager;
 import com.custardsource.cache.policy.replacement.FixedReplacementConfiguration;
 import com.custardsource.cache.policy.simple.FifoCacheManager;
 import com.custardsource.cache.policy.simple.FifoConfiguration;
+import com.custardsource.cache.policy.simple.LruCacheManager;
+import com.custardsource.cache.policy.simple.LruConfiguration;
 import com.custardsource.cache.policy.twoq.TwoQCacheManager;
 import com.custardsource.cache.policy.twoq.TwoQConfiguration;
 import com.custardsource.cache.simulator.fqn.IntegerDistributionFqnSource;
@@ -47,25 +49,20 @@ public class CacheSimulatorShell {
             final int cacheSize = Integer.parseInt(cmd.getOptionValue("c"));
 
             // TODO add proper toStrings
-            // TODO MQCacheManager is broken
             runTest(getConfiguration(new MQCacheManager<String>(new MQConfiguration(cacheSize)),
                     cmd));
+            // TODO this doesn't seem to give the right figures at all
             runTest(getConfiguration(
                     new TwoQCacheManager<String>(new TwoQConfiguration(cacheSize)), cmd));
-            // TODO hit counting is broken
             runTest(getConfiguration(new AdaptiveReplacementCacheManager<String>(
                     new AdaptiveReplacementConfiguration(cacheSize)), cmd));
             runTest(getConfiguration(new FixedReplacementCacheManager<String>(
                     new FixedReplacementConfiguration(cacheSize, 0.1)), cmd));
             runTest(getConfiguration(
                     new FifoCacheManager<String>(new FifoConfiguration(cacheSize)), cmd));
-            // runTest(getConfiguration(new
-            // FixedReplacementPolicySpecification(0.1), cmd));
-            // runTest(getConfiguration(new StandardPolicySpecification(
-            // "org.jboss.cache.eviction.LRUPolicy"), cmd));
-            //
-            // runTest(getConfiguration(new StandardPolicySpecification(
-            // "org.jboss.cache.eviction.FIFOPolicy"), cmd));
+            runTest(getConfiguration(
+                    new LruCacheManager<String>(new LruConfiguration(cacheSize)), cmd));
+
             // runTest(getConfiguration(new StandardPolicySpecification(
             // "org.jboss.cache.eviction.MRUPolicy"), cmd));
             // runTest(getConfiguration(new StandardPolicySpecification(
