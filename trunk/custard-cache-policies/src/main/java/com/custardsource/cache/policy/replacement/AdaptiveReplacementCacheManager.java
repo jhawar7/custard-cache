@@ -99,25 +99,25 @@ public class AdaptiveReplacementCacheManager<T> extends
 	@Override
 	protected void onMiss(T entry) {
 		if (leftSideSize() >= cacheCapacity()) {
-			LogUtils.debug(LOG, " Side 1 full ");
+			LogUtils.debug(LOG, " Side 1 full (IV.i)");
 			if (t1.size() < cacheCapacity()) {
-				LogUtils.debug(LOG, " b1 contains item, evicting");
+				LogUtils.debug(LOG, " b1 contains item, evicting (IV.i.if)");
 				evictNode(b1);
 				freeRoom(null);
 			} else {
-				LogUtils.debug(LOG, " b1's empty, evict from t1");
+				LogUtils.debug(LOG, " b1's empty, evict from t1 (IV.i.else)");
 				evictNode(t1);
 			}
 		} else {
 			if (directorySize() >= cacheCapacity()) {
-				LogUtils.debug(LOG, " directory full");
+				LogUtils.debug(LOG, " cache full (IV.ii)");
 				if (directorySize() >= directoryCapacity()) {
-					LogUtils.debug(LOG, " both sides full, evict from b2");
+					LogUtils.debug(LOG, " directory full, evict from b2 (IV.ii.if)");
 					evictNode(b2);
 				}
 				freeRoom(null);
 			} else {
-				LogUtils.debug(LOG, " room in the cache, straight to t1");
+				LogUtils.debug(LOG, " room in the cache, straight to t1 (IV.fallthrough)");
 			}
 		}
 		insertNode(entry, t1);
@@ -141,21 +141,21 @@ public class AdaptiveReplacementCacheManager<T> extends
 	@Override
 	protected void onHit(T node, Queue<T> currentLocation) {
 		if (currentLocation == t1 || currentLocation == t2) {
-			LogUtils.debug(LOG, " Moving from %s to head of t2",
+			LogUtils.debug(LOG, " Moving from %s to head of t2 (I)",
 					queueName(currentLocation));
 			moveNode(node, currentLocation, t2);
 		} else {
 			// It's b1 or b2
-			LogUtils.debug(LOG, " Moving from %s to head of t2",
+			LogUtils.debug(LOG, " Moving from %s to head of t2 (II/III)",
 					queueName(currentLocation));
 			if (currentLocation == b1) {
 				// B1 hit - favour recency
-				LogUtils.debug(LOG, "  B1 hit - favour recency");
+				LogUtils.debug(LOG, "  B1 hit - favour recency (II)");
 				targetT1Size = Math.min(targetT1Size
 						+ Math.max(b2.size() / b1.size(), 1), cacheCapacity());
 			} else {
 				// B2 hit - favour frequency
-				LogUtils.debug(LOG, "  B2 hit - favour frequency");
+				LogUtils.debug(LOG, "  B2 hit - favour frequency (III)");
 				targetT1Size = Math.max(targetT1Size
 						- Math.max(b1.size() / b2.size(), 1), 0);
 			}
@@ -163,5 +163,10 @@ public class AdaptiveReplacementCacheManager<T> extends
 			moveNode(node, currentLocation, t2);
 		}
 	}
+
+    @Override
+    protected String debugString() {
+        return super.debugString() + " t" + targetT1Size;
+    }
 
 }
