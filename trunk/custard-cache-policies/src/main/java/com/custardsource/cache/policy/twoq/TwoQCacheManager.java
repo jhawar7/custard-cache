@@ -108,7 +108,7 @@ public class TwoQCacheManager<T> extends MultipleQueueCacheManager<T> {
             evict(moveHead(a1In, a1Out));
             if (a1Out.size() > kOut()) {
                 LogUtils.debug(LOG, " a1Out is now full; drop oldest");
-                evictNode(a1Out);
+                removeNode(a1Out);
             }
         } else {
             LogUtils.debug(LOG, " a1Out has room; evict from am");

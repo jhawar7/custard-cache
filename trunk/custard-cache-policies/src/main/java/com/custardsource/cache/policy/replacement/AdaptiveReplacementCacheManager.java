@@ -102,7 +102,7 @@ public class AdaptiveReplacementCacheManager<T> extends
 			LogUtils.debug(LOG, " Side 1 full (IV.i)");
 			if (t1.size() < cacheCapacity()) {
 				LogUtils.debug(LOG, " b1 contains item, evicting (IV.i.if)");
-				evictNode(b1);
+				removeNode(b1);
 				freeRoom(null);
 			} else {
 				LogUtils.debug(LOG, " b1's empty, evict from t1 (IV.i.else)");
@@ -113,7 +113,7 @@ public class AdaptiveReplacementCacheManager<T> extends
 				LogUtils.debug(LOG, " cache full (IV.ii)");
 				if (directorySize() >= directoryCapacity()) {
 					LogUtils.debug(LOG, " directory full, evict from b2 (IV.ii.if)");
-					evictNode(b2);
+					removeNode(b2);
 				}
 				freeRoom(null);
 			} else {
