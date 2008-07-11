@@ -5,7 +5,7 @@ import junit.framework.TestCase;
 import com.custardsource.cache.policy.CacheManagerListener;
 
 public abstract class BasicCacheStateTest extends TestCase {
-	protected void assertStateAfterVisit(BaseCacheManager<Character> manager,
+	protected void assertStateAfterVisit(BaseCacheManager<Character, ?> manager,
 			EvictionListener listener, char visit, String expectedState,
 			int expectedMisses, int expectedEvictions) {
 		manager.visit(visit);

@@ -23,12 +23,11 @@ import com.custardsource.cache.util.LogUtils;
  * @see AdaptiveReplacementCacheManager
  * @author pcowan
  */
-public class FixedReplacementCacheManager<T> extends ReplacementCacheManager<T> {
+public class FixedReplacementCacheManager<T> extends ReplacementCacheManager<T, FixedReplacementConfiguration> {
     private static final Log LOG = LogFactory.getLog(FixedReplacementCacheManager.class);
-    private final FixedReplacementConfiguration config;
 
     public FixedReplacementCacheManager(FixedReplacementConfiguration config) {
-        this.config = config;
+        setConfig(config);
     }
 
     @Override
@@ -39,18 +38,18 @@ public class FixedReplacementCacheManager<T> extends ReplacementCacheManager<T> 
 
     @Override
     protected int cacheCapacity() {
-        return config.getMaxNodes();
+        return getConfig().getMaxNodes();
     }
 
     @Override
     protected void dumpStatus() {
         if (LOG.isTraceEnabled()) {
             // TODO make these one message
-            LOG.trace("  t1 size: " + config.getT1Size());
+            LOG.trace("  t1 size: " + getConfig().getT1Size());
             LOG.trace("  " + dumpQueue(t1));
             LOG.trace("  " + dumpQueue(t2));
         } else if (LOG.isDebugEnabled()) {
-            LOG.debug("  Target t1 size: " + config.getT1Size() + ", actual capacities "
+            LOG.debug("  Target t1 size: " + getConfig().getT1Size() + ", actual capacities "
                     + dumpCapacity(t1) + " " + dumpCapacity(t2));
         }
 
@@ -66,7 +65,7 @@ public class FixedReplacementCacheManager<T> extends ReplacementCacheManager<T> 
     protected void onMiss(T entry) {
     	if (cacheSize() < cacheCapacity()) {
             LogUtils.debug(LOG, " room in the cache, straight to t1");
-    	} else if (t1.size() >= config.getT1Size()) {
+    	} else if (t1.size() >= getConfig().getT1Size()) {
             LogUtils.debug(LOG, " t1 full, evicting from t1");
             evictNode(t1);
         } else {

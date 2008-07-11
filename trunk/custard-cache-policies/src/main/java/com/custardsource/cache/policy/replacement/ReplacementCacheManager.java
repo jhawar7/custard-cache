@@ -3,6 +3,8 @@ package com.custardsource.cache.policy.replacement;
 import java.util.LinkedHashSet;
 import java.util.Queue;
 
+import com.custardsource.cache.policy.BasicConfiguration;
+import com.custardsource.cache.policy.CacheManager;
 import com.custardsource.cache.policy.MultipleQueueCacheManager;
 import com.custardsource.cache.policy.QueueAdapter;
 
@@ -12,7 +14,7 @@ import com.custardsource.cache.policy.QueueAdapter;
  * together comprise the cache. Subclasses implement the breakdown between the two groups
  * differently.
  */
-public abstract class ReplacementCacheManager<T> extends MultipleQueueCacheManager<T> {
+public abstract class ReplacementCacheManager<T, U extends BasicConfiguration> extends MultipleQueueCacheManager<T, U> {
     protected Queue<T> t1 = new QueueAdapter<T>(new LinkedHashSet<T>());
     protected Queue<T> t2 = new QueueAdapter<T>(new LinkedHashSet<T>());
 

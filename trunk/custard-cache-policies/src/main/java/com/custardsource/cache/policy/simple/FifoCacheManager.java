@@ -7,12 +7,11 @@ import java.util.Queue;
 import com.custardsource.cache.policy.BaseCacheManager;
 import com.custardsource.cache.policy.QueueAdapter;
 
-public class FifoCacheManager<T> extends BaseCacheManager<T> {
+public class FifoCacheManager<T> extends BaseCacheManager<T, FifoConfiguration> {
     private final Queue<T> queue = new QueueAdapter<T>(new LinkedHashSet<T>());
-    private final FifoConfiguration config;
     
     public FifoCacheManager(FifoConfiguration config) {
-        this.config = config;
+        setConfig(config);
     }
     
     public void add(T hit) {
@@ -35,7 +34,7 @@ public class FifoCacheManager<T> extends BaseCacheManager<T> {
         if (!queue.contains(hit)) {
             queue.add(hit);
             load(hit);
-            if (queue.size() > config.getMaxNodes()) {
+            if (queue.size() > getConfig().getMaxNodes()) {
                 evict(queue.remove());
             }
         }

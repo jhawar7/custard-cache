@@ -32,17 +32,16 @@ import com.custardsource.cache.util.LogUtils;
  * @author pcowan
  */
 public class AdaptiveReplacementCacheManager<T> extends
-		ReplacementCacheManager<T> {
+		ReplacementCacheManager<T, AdaptiveReplacementConfiguration> {
 	private static final Log LOG = LogFactory
 			.getLog(AdaptiveReplacementCacheManager.class);
 	private Queue<T> b1 = new QueueAdapter<T>(new LinkedHashSet<T>());
 	private Queue<T> b2 = new QueueAdapter<T>(new LinkedHashSet<T>());
-	private final AdaptiveReplacementConfiguration config;
 	private int targetT1Size = 0;
 
 	public AdaptiveReplacementCacheManager(
 			AdaptiveReplacementConfiguration config) {
-		this.config = config;
+		setConfig(config);
 		registerQueue(b1, "b1");
 		registerQueue(b2, "b2");
 	}
@@ -67,7 +66,7 @@ public class AdaptiveReplacementCacheManager<T> extends
 	}
 
 	private int directoryCapacity() {
-		return config.getMaxNodes() * 2;
+		return getConfig().getMaxNodes() * 2;
 	}
 
 	private int leftSideSize() {
@@ -93,7 +92,7 @@ public class AdaptiveReplacementCacheManager<T> extends
 
 	@Override
 	protected int cacheCapacity() {
-		return config.getMaxNodes();
+		return getConfig().getMaxNodes();
 	}
 
 	@Override

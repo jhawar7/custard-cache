@@ -7,12 +7,11 @@ import java.util.Queue;
 import com.custardsource.cache.policy.BaseCacheManager;
 import com.custardsource.cache.policy.QueueAdapter;
 
-public class LruCacheManager<T> extends BaseCacheManager<T> {
+public class LruCacheManager<T> extends BaseCacheManager<T, LruConfiguration> {
     private final Queue<T> queue = new QueueAdapter<T>(new LinkedHashSet<T>());
-    private final LruConfiguration config;
     
     public LruCacheManager(LruConfiguration config) {
-        this.config = config;
+        setConfig(config);
     }
     
     public void add(T hit) {
@@ -37,7 +36,7 @@ public class LruCacheManager<T> extends BaseCacheManager<T> {
         
     	if (!existed) {
             load(hit);
-            if (queue.size() > config.getMaxNodes()) {
+            if (queue.size() > getConfig().getMaxNodes()) {
                 evict(queue.remove());
             }
     	}

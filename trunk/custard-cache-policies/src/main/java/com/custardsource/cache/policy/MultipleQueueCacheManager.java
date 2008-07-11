@@ -24,7 +24,7 @@ import com.custardsource.cache.util.LogUtils;
  * 
  * @author pcowan
  */
-public abstract class MultipleQueueCacheManager<T> extends BaseCacheManager<T> {
+public abstract class MultipleQueueCacheManager<T, U extends BasicConfiguration> extends BaseCacheManager<T, U> {
     private static final Log LOG = LogFactory.getLog(BaseCacheManager.class);
 
     private Map<Queue<T>, String> queueNames = new IdentityHashMap<Queue<T>, String>();
