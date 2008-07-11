@@ -48,7 +48,6 @@ public class CacheSimulatorShell {
             cmd = parser.parse(options, args);
             final int cacheSize = Integer.parseInt(cmd.getOptionValue("c"));
 
-            // TODO add proper toStrings
             runTest(getConfiguration(new MQCacheManager<String>(new MQConfiguration(cacheSize)),
                     cmd));
             // TODO this doesn't seem to give the right figures at all
@@ -62,11 +61,8 @@ public class CacheSimulatorShell {
                     new FifoCacheManager<String>(new FifoConfiguration(cacheSize)), cmd));
             runTest(getConfiguration(
                     new LruCacheManager<String>(new LruConfiguration(cacheSize)), cmd));
-
-            // runTest(getConfiguration(new StandardPolicySpecification(
-            // "org.jboss.cache.eviction.MRUPolicy"), cmd));
-            // runTest(getConfiguration(new StandardPolicySpecification(
-            // "org.jboss.cache.eviction.LFUPolicy"), cmd));
+            // TODO MRU Policy
+            // TODO LFU Policy
         } catch (ParseException e) {
             new HelpFormatter().printHelp(100, "TreeCacheHitSimulator", "", options, "");
             System.exit(1);
