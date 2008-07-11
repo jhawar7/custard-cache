@@ -35,5 +35,10 @@ public abstract class BaseCacheManager<T, U extends BasicConfiguration> implemen
         return this.config;
     }
         
-    protected abstract String debugString(); 
+    protected abstract String debugString();
+    
+    @Override
+    public String toString() {
+        return getClass().getSimpleName() + " {" + getConfig() + "}";
+    }
 }
