@@ -23,14 +23,13 @@ import com.custardsource.cache.policy.QueueAdapter;
  *      Zhou, James F Philbin, and Kai Li
  * @author pcowan
  */
-public class MQCacheManager<T> extends MultipleQueueCacheManager<T> {
+public class MQCacheManager<T> extends MultipleQueueCacheManager<T, MQConfiguration> {
     private static final Log LOG = LogFactory.getLog(MultipleQueueCacheManager.class);
 
     private ArrayList<Queue<T>> queues = new ArrayList<Queue<T>>();
     private Queue<T> qOut = new QueueAdapter<T>(new LinkedHashSet<T>());
     private Map<T, MQMetadata> metadata = new HashMap<T, MQMetadata>();
     private int currentTime = 0;
-    private final MQConfiguration config;
 
     public MQCacheManager(MQConfiguration config) {
         for (int i = 0; i < config.getQueueCount(); i++) {
@@ -39,7 +38,7 @@ public class MQCacheManager<T> extends MultipleQueueCacheManager<T> {
             registerQueue(queue, "Q" + i);
         }
         registerQueue(qOut, "qOut");
-        this.config = config;
+        setConfig(config);
     }
 
     @Override
@@ -132,7 +131,7 @@ public class MQCacheManager<T> extends MultipleQueueCacheManager<T> {
 
     private int qOutMax() {
         // TODO make this configurable
-        return config.getMaxNodes() / 2;
+        return getConfig().getMaxNodes() / 2;
     }
 
     private Queue<T> getFirstNonEmptyQueue() {
@@ -166,7 +165,7 @@ public class MQCacheManager<T> extends MultipleQueueCacheManager<T> {
     }
 
     protected int cacheCapacity() {
-        return config.getMaxNodes();
+        return getConfig().getMaxNodes();
     }
 
     private class MQMetadata {
@@ -178,7 +177,7 @@ public class MQCacheManager<T> extends MultipleQueueCacheManager<T> {
         }
 
         public void markAsModified() {
-            expiryTime = currentTime + config.getLifetime();
+            expiryTime = currentTime + getConfig().getLifetime();
         }
         
         public boolean isExpired() {

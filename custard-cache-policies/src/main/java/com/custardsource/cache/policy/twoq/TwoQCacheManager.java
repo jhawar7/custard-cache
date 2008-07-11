@@ -20,16 +20,15 @@ import com.custardsource.cache.util.LogUtils;
  *      Buffer Management Replacement Algorithm</cite></a>, Theodore Johnson and Dennis Shasha
  * @author pcowan
  */
-public class TwoQCacheManager<T> extends MultipleQueueCacheManager<T> {
+public class TwoQCacheManager<T> extends MultipleQueueCacheManager<T, TwoQConfiguration> {
     private static final Log LOG = LogFactory.getLog(MultipleQueueCacheManager.class);
 
     protected Queue<T> am = new QueueAdapter<T>(new LinkedHashSet<T>());
     protected Queue<T> a1In = new QueueAdapter<T>(new LinkedHashSet<T>());
     protected Queue<T> a1Out = new QueueAdapter<T>(new LinkedHashSet<T>());
-    private final TwoQConfiguration config;
 
     public TwoQCacheManager(TwoQConfiguration config) {
-        this.config = config;
+        setConfig(config);
         registerQueue(am, "am");
         registerQueue(a1In, "a1In");
         registerQueue(a1Out, "a1Out");
@@ -90,7 +89,7 @@ public class TwoQCacheManager<T> extends MultipleQueueCacheManager<T> {
     }
 
     protected int cacheCapacity() {
-        return config.getMaxNodes();
+        return getConfig().getMaxNodes();
     }
 
     @Override

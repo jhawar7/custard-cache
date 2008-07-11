@@ -3,8 +3,9 @@ package com.custardsource.cache.policy;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class BaseCacheManager<T> implements CacheManager<T> {
+public abstract class BaseCacheManager<T, U extends BasicConfiguration> implements CacheManager<T> {
     public List<CacheManagerListener<T>> listeners = new ArrayList<CacheManagerListener<T>>();
+    private U config;
     
     public void addListener(CacheManagerListener<T> listener) {
         listeners.add(listener);
@@ -25,6 +26,14 @@ public abstract class BaseCacheManager<T> implements CacheManager<T> {
             listener.objectLoaded(object);
         }
     }
+    
+    protected final void setConfig(U config) {
+        this.config = config;
+    }
 
+    protected final U getConfig() {
+        return this.config;
+    }
+        
     protected abstract String debugString(); 
 }
