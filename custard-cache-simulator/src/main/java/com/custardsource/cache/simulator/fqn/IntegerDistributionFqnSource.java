@@ -33,7 +33,7 @@ public class IntegerDistributionFqnSource implements Iterable<String> {
             int iteration = 0;
 
             public boolean hasNext() {
-                return (iteration <= iterations);
+                return (iteration < iterations);
             }
 
             public String next() {
