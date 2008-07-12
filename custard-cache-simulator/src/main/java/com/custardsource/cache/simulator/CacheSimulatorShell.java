@@ -30,6 +30,8 @@ import com.custardsource.cache.policy.replacement.FixedReplacementCacheManager;
 import com.custardsource.cache.policy.replacement.FixedReplacementConfiguration;
 import com.custardsource.cache.policy.simple.FifoCacheManager;
 import com.custardsource.cache.policy.simple.FifoConfiguration;
+import com.custardsource.cache.policy.simple.LfuCacheManager;
+import com.custardsource.cache.policy.simple.LfuConfiguration;
 import com.custardsource.cache.policy.simple.LruCacheManager;
 import com.custardsource.cache.policy.simple.LruConfiguration;
 import com.custardsource.cache.policy.twoq.TwoQCacheManager;
@@ -61,8 +63,9 @@ public class CacheSimulatorShell {
                     new FifoCacheManager<String>(new FifoConfiguration(cacheSize)), cmd));
             runTest(getConfiguration(
                     new LruCacheManager<String>(new LruConfiguration(cacheSize)), cmd));
+            runTest(getConfiguration(
+                    new LfuCacheManager<String>(new LfuConfiguration(cacheSize)), cmd));
             // TODO MRU Policy
-            // TODO LFU Policy
         } catch (ParseException e) {
             new HelpFormatter().printHelp(100, "TreeCacheHitSimulator", "", options, "");
             System.exit(1);
