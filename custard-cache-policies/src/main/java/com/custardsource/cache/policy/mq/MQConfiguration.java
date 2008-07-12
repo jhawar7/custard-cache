@@ -6,9 +6,6 @@ public class MQConfiguration extends BasicConfiguration {
 	private int queueCount = 3;
     private int lifetime = 3;
     
-    public static final String QUEUE_COUNT = "queueCount";
-    public static final String LIFETIME = "lifetime";
-
     public MQConfiguration() {
 		super();
 	}
