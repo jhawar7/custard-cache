@@ -149,6 +149,6 @@ public class QueueAdapter<E> implements Queue<E> {
 
     @Override
     public String toString() {
-        return "QueueAdapter(" + inner.toString() + ")";
+        return inner.toString();
     }
 }
