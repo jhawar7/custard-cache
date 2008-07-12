@@ -22,6 +22,8 @@ import org.apache.commons.math.distribution.DistributionFactory;
 import org.apache.commons.math.distribution.IntegerDistribution;
 
 import com.custardsource.cache.policy.CacheManager;
+import com.custardsource.cache.policy.associative.DirectMappedCacheManager;
+import com.custardsource.cache.policy.associative.DirectMappedConfiguration;
 import com.custardsource.cache.policy.mq.MQCacheManager;
 import com.custardsource.cache.policy.mq.MQConfiguration;
 import com.custardsource.cache.policy.replacement.AdaptiveReplacementCacheManager;
@@ -65,6 +67,8 @@ public class CacheSimulatorShell {
                     new LruCacheManager<String>(new LruConfiguration(cacheSize)), cmd));
             runTest(getConfiguration(
                     new LfuCacheManager<String>(new LfuConfiguration(cacheSize)), cmd));
+            runTest(getConfiguration(
+                    new DirectMappedCacheManager<String>(new DirectMappedConfiguration<String>(cacheSize)), cmd));
             // TODO MRU Policy
         } catch (ParseException e) {
             new HelpFormatter().printHelp(100, "TreeCacheHitSimulator", "", options, "");
