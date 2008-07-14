@@ -88,7 +88,7 @@ public abstract class MultipleQueueCacheManager<T, U extends BasicConfiguration>
      * including in a 'ghost' queue.
      */
     protected void afterRemove(T entry) {
-    };
+    }
 
     protected String queueName(Queue<T> queue) {
         String name = queueNames.get(queue);
