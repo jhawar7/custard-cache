@@ -6,26 +6,23 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.LineNumberReader;
 import java.util.Iterator;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 public class LogFileFqnSource implements Iterable<String> {
     private final InputStream input;
-    private final Pattern pattern;
-    private final Integer group;
     private final Integer maxPopulation;
 
     private static final Log LOG = LogFactory.getLog(LogFileFqnSource.class);
 
-    public LogFileFqnSource(InputStream input, Pattern pattern, Integer group, Integer maxPopulation) {
+    public LogFileFqnSource(InputStream input, Integer maxPopulation) {
         this.input = input;
-        this.pattern = pattern;
-        this.group = group;
         this.maxPopulation = maxPopulation;
+    }
 
+    protected String getFqn(String line) {
+        return line;
     }
 
     public Iterator<String> iterator() {
@@ -52,10 +49,9 @@ public class LogFileFqnSource implements Iterable<String> {
                 try {
                     String line = reader.readLine();
                     while (line != null && found < limit) {
-                        Matcher m = pattern.matcher(line);
-                        if (m.matches()) {
+                        String match = getFqn(line);
+                        if (match != null) {
                             found++;
-                            String match = m.group(group);
                             LOG.debug("Found FQN #" + found + ": " + match);
                             return match;
                         }

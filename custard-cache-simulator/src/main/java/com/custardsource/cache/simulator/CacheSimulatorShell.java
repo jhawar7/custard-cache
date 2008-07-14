@@ -40,6 +40,7 @@ import com.custardsource.cache.policy.twoq.TwoQCacheManager;
 import com.custardsource.cache.policy.twoq.TwoQConfiguration;
 import com.custardsource.cache.simulator.fqn.IntegerDistributionFqnSource;
 import com.custardsource.cache.simulator.fqn.LogFileFqnSource;
+import com.custardsource.cache.simulator.fqn.RegexLogFileFqnSource;
 
 public class CacheSimulatorShell {
 
@@ -189,8 +190,6 @@ public class CacheSimulatorShell {
             return new IntegerDistributionFqnSource(distribution, getStandardRandomnessSource(),
                     populationSize, iterations);
         } else if (cmd.hasOption("f")) {
-            Pattern pattern = Pattern.compile(cmd.getOptionValue("m", ".*"));
-            Integer group = Integer.valueOf(cmd.getOptionValue("g", "0"));
             File f = new File(cmd.getOptionValue("f"));
             Integer limit = Integer.valueOf(cmd.getOptionValue("l", "0"));
             InputStream stream = new FileInputStream(f);
@@ -199,7 +198,13 @@ public class CacheSimulatorShell {
                 zipStream.getNextEntry();
                 stream = zipStream;
             }
-            return new LogFileFqnSource(stream, pattern, group, limit);
+            if (cmd.hasOption("m")) {
+                Pattern pattern = Pattern.compile(cmd.getOptionValue("m", ".*"));
+                Integer group = Integer.valueOf(cmd.getOptionValue("g", "0"));
+                return new RegexLogFileFqnSource(stream, pattern, group, limit);
+            }
+
+            return new LogFileFqnSource(stream, limit);
         }
 
         throw new IllegalStateException("Cannot create fqn source");
