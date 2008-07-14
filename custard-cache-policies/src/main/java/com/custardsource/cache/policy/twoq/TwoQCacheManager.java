@@ -44,8 +44,7 @@ public class TwoQCacheManager<T> extends MultipleQueueCacheManager<T, TwoQConfig
 
     @Override
     protected void afterInsert(T entry, Queue<T> source, Queue<T> destination) {
-        if (destination == am || destination == a1In) {
-            // TODO check the 'from' here?
+        if (source == null || source == a1Out) {
             load(entry);
         }
     }
@@ -120,7 +119,9 @@ public class TwoQCacheManager<T> extends MultipleQueueCacheManager<T, TwoQConfig
         if (currentLocation == am) {
             LogUtils.debug(LOG, " Shuffling to head of am");
             moveNode(node, currentLocation, am);
-        } else if (currentLocation != a1In) {
+        } else if (currentLocation == a1In) {
+            //moveNode(node, currentLocation, am);
+        } else {
             // Must be in a1Out
             reclaimForEntry();
             moveNode(node, currentLocation, am);
