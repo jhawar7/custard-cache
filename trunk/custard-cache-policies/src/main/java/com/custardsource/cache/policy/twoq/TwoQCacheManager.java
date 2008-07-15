@@ -78,13 +78,11 @@ public class TwoQCacheManager<T> extends MultipleQueueCacheManager<T, TwoQConfig
     }
 
     private int kIn() {
-        // TODO make configurable
-        return cacheCapacity() / 4;
+        return (int) (cacheCapacity() * getConfig().getRecentHitRatio());
     }
 
     private int kOut() {
-        // TODO make configurable
-        return cacheCapacity() / 2;
+        return (int) (cacheCapacity() * getConfig().getEvictedTrackingRatio());
     }
 
     protected int cacheCapacity() {
