@@ -56,12 +56,13 @@ public class MQCacheManager<T> extends MultipleQueueCacheManager<T, MQConfigurat
     @Override
     protected void dumpStatus() {
         if (LOG.isTraceEnabled()) {
-            // TODO make these one message
-            LOG.trace("  current time: " + currentTime);
+            StringBuilder builder = new StringBuilder();
+            builder.append("  current time: " + currentTime + "\n");
             for (Queue<T> queue : queues) {
-                LOG.trace("  " + dumpQueue(queue));
+                builder.append("  " + dumpQueue(queue) + "\n");
             }
-            LOG.trace("  " + dumpQueue(qOut));
+            builder.append("  " + dumpQueue(qOut));
+            LOG.trace(builder.toString());
         } else if (LOG.isDebugEnabled()) {
             StringBuilder builder = new StringBuilder();
             builder.append("  time " + currentTime + ", actual capacities ");
