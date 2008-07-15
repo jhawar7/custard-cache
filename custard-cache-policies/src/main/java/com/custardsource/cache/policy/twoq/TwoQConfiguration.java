@@ -2,14 +2,42 @@ package com.custardsource.cache.policy.twoq;
 
 import com.custardsource.cache.policy.BasicConfiguration;
 
-// TODO there are a couple of options on 2q which should be configurable; even if they're not (yet),
-// we still want this a separate class so as not to force users to change a config class later
 public class TwoQConfiguration extends BasicConfiguration {
-	public TwoQConfiguration() {
-		super();
-	}
+    private float recentHitRatio = 0.3f;
+    private float evictedTrackingRatio = 0.5f;
 
-	public TwoQConfiguration(int maxNodes) {
-		super(maxNodes);
-	}
+    public TwoQConfiguration() {
+        super();
+    }
+
+    public TwoQConfiguration(int maxNodes, float recentHitRatio) {
+        super(maxNodes);
+        this.recentHitRatio = recentHitRatio;
+    }
+
+    public TwoQConfiguration(int maxNodes, float recentHitRatio, float evictedTrackingRatio) {
+        this(maxNodes, recentHitRatio);
+        this.evictedTrackingRatio = evictedTrackingRatio;
+    }
+
+    public float getRecentHitRatio() {
+        return recentHitRatio;
+    }
+
+    public void setRecentHitRatio(float ratio) {
+        this.recentHitRatio = ratio;
+    }
+
+    public float getEvictedTrackingRatio() {
+        return evictedTrackingRatio;
+    }
+
+    public void getEvictedTrackingRatio(float ratio) {
+        this.evictedTrackingRatio = ratio;
+    }
+
+    public String toString() {
+        return super.toString() + ", recentHitRatio = " + recentHitRatio
+                + ", evictedTrackingRatio = " + evictedTrackingRatio;
+    }
 }

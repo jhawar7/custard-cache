@@ -56,7 +56,7 @@ public class CacheSimulatorShell {
             runTest(getConfiguration(new MQCacheManager<String>(new MQConfiguration(cacheSize)),
                     cmd));
             runTest(getConfiguration(
-                    new TwoQCacheManager<String>(new TwoQConfiguration(cacheSize)), cmd));
+                    new TwoQCacheManager<String>(new TwoQConfiguration(cacheSize, 0.3f)), cmd));
             runTest(getConfiguration(new AdaptiveReplacementCacheManager<String>(
                     new AdaptiveReplacementConfiguration(cacheSize)), cmd));
             runTest(getConfiguration(new FixedReplacementCacheManager<String>(
