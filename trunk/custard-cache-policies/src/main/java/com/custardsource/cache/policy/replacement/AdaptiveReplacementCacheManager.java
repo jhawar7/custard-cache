@@ -76,12 +76,13 @@ public class AdaptiveReplacementCacheManager<T> extends
 	@Override
 	protected void dumpStatus() {
 		if (LOG.isTraceEnabled()) {
-			// TODO make these one message
-			LOG.trace("  Target t1 size: " + targetT1Size);
-			LOG.trace("  " + dumpQueue(t1));
-			LOG.trace("  " + dumpQueue(b1));
-			LOG.trace("  " + dumpQueue(t2));
-			LOG.trace("  " + dumpQueue(b2));
+            StringBuilder builder = new StringBuilder();
+            builder.append("  Target t1 size: " + targetT1Size + "\n");
+            builder.append("  " + dumpQueue(t1) + "\n");
+            builder.append("  " + dumpQueue(b1) + "\n");
+            builder.append("  " + dumpQueue(t2) + "\n");
+            builder.append("  " + dumpQueue(b2));
+            LOG.trace(builder.toString());
 		} else if (LOG.isDebugEnabled()) {
 			LOG.debug("  Target t1 size: " + targetT1Size
 					+ ", actual capacities " + dumpCapacity(t1) + " "

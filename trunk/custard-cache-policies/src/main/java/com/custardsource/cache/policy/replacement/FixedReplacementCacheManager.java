@@ -44,10 +44,8 @@ public class FixedReplacementCacheManager<T> extends ReplacementCacheManager<T, 
     @Override
     protected void dumpStatus() {
         if (LOG.isTraceEnabled()) {
-            // TODO make these one message
-            LOG.trace("  t1 size: " + getConfig().getT1Size());
-            LOG.trace("  " + dumpQueue(t1));
-            LOG.trace("  " + dumpQueue(t2));
+            LOG.trace("  t1 size: " + getConfig().getT1Size() + "\n" + "  " + dumpQueue(t1) + "\n"
+                    + "  " + dumpQueue(t2));
         } else if (LOG.isDebugEnabled()) {
             LOG.debug("  Target t1 size: " + getConfig().getT1Size() + ", actual capacities "
                     + dumpCapacity(t1) + " " + dumpCapacity(t2));

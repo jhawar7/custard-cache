@@ -64,12 +64,13 @@ public class TwoQCacheManager<T> extends MultipleQueueCacheManager<T, TwoQConfig
     @Override
     protected void dumpStatus() {
         if (LOG.isTraceEnabled()) {
-            // TODO make these one message
-            LOG.trace("  kIn/total split: " + kIn() + "/" + cacheCapacity());
-            LOG.trace("  kOut: " + kOut());
-            LOG.trace("  " + dumpQueue(am));
-            LOG.trace("  " + dumpQueue(a1In));
-            LOG.trace("  " + dumpQueue(a1Out));
+            StringBuilder builder = new StringBuilder();
+            builder.append("  kIn/total split: " + kIn() + "/" + cacheCapacity() + "\n");
+            builder.append("  kOut: " + kOut() + "\n");
+            builder.append("  " + dumpQueue(am) + "\n");
+            builder.append("  " + dumpQueue(a1In) + "\n");
+            builder.append("  " + dumpQueue(a1Out));
+            LOG.trace(builder.toString());
         } else if (LOG.isDebugEnabled()) {
             LOG.debug("  kIn/total " + kIn() + "/" + cacheCapacity() + ", kOut " + kOut()
                     + ", actual capacities " + dumpCapacity(am) + " " + dumpCapacity(a1In) + " "
