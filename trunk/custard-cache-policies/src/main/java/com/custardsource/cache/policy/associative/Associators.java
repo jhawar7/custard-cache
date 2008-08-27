@@ -4,7 +4,7 @@ public class Associators {
     public static <T> Associator<T> hashCodeAssociator() {
         return new Associator<T>() {
             public int calculateLocation(T item) {
-                return item.hashCode();
+                return Math.abs(item.hashCode());
             }};
         
     }
