@@ -11,6 +11,7 @@
     <module>custard-cache-policies</module>
     <module>custard-cache-jboss2</module>
     <module>custard-cache-simulator</module>
+    <module>custard-cache-example</module>
   </modules>
   <licenses>
     <license>
