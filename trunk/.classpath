@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="custard-cache-policies/src/main/java"/>
+	<classpathentry kind="src" path="custard-cache-example/src/test/java"/>
+	<classpathentry kind="src" path="custard-cache-example/src/main/java"/>
 	<classpathentry kind="src" path="custard-cache-policies/src/test/java"/>
 	<classpathentry kind="src" path="custard-cache-jboss2/src/main/java"/>
 	<classpathentry kind="src" path="custard-cache-simulator/src/main/java"/>

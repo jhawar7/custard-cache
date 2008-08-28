@@ -1,0 +1,25 @@
+<?xml version="1.0"?><project>
+  <parent>
+    <artifactId>custard-cache</artifactId>
+    <groupId>com.custardsource.cache</groupId>
+    <version>0.0.1</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.custardsource.cache</groupId>
+  <artifactId>custard-cache-example</artifactId>
+  <name>custard-cache-example</name>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+    <dependency>
+      <groupId>com.custardsource.cache</groupId>     
+      <artifactId>custard-cache-policies</artifactId>
+      <version>${cache.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.2</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>
