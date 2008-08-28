@@ -41,7 +41,6 @@ public abstract class MultipleQueueCacheManager<T, U extends BasicConfiguration>
     public void add(T hit) {
         // TODO we don't do anything here because a get it always followed by a visit -- what if
         // it's inserted manually? Hmm.
-        load(hit);
     }
 
     public void remove(T hit) {
